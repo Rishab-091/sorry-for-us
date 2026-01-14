@@ -44,20 +44,33 @@ body {
 
 .lock-box h2 {
   color: #ff7aa2;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   font-weight: 500;
 }
 
-.lock-box input {
-  padding: 12px;
-  width: 200px;
-  border-radius: 25px;
+.hint {
+  font-size: 0.85rem;
+  color: #9f9fb0;
+  margin-bottom: 18px;
+}
+
+.otp {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.otp input {
+  width: 36px;
+  height: 44px;
+  border-radius: 10px;
   border: none;
   outline: none;
-  text-align: center;
   background: #1f1f26;
   color: #fff;
-  margin-bottom: 15px;
+  font-size: 1.1rem;
+  text-align: center;
 }
 
 .lock-box button {
@@ -182,8 +195,13 @@ button.main:hover { background: #ff5f95; }
 <div id="lock">
   <div class="lock-box">
     <h2>For Priyanka</h2>
-    <input type="password" id="pass" placeholder="Enter date" />
-    <br>
+    <p class="hint">Our mutually decided anniversary<br>(DDMMYYYY)</p>
+
+    <div class="otp">
+      <input maxlength="1"><input maxlength="1"><input maxlength="1"><input maxlength="1">
+      <input maxlength="1"><input maxlength="1"><input maxlength="1"><input maxlength="1">
+    </div>
+
     <button onclick="unlock()">Unlock</button>
   </div>
 </div>
@@ -197,11 +215,11 @@ button.main:hover { background: #ff5f95; }
 <section id="sorry">
   <h1>Priyanka ❤️</h1>
   <p>
-    I know I have made mistakes and hurted you bhot baar and you still chose me<br><br>
-    Especially last October — I know that phase hurted you deeply, and I’m genuinely sorry for that
+    I know I have made mistakes and hurted you.<br><br>
+    Especially last October — I know that phase hurted you deeply, and I’m genuinely sorry for that.
     I should have been more understanding, more patient, and more careful with your heart.<br><br>
     And what happened recently… maybe might have reopened the old wounds about kritika wala incident
-    None of it was intentional and again this was not a revenge or anything by me to hurt you,
+    None of it was intentional and again this was not a revenge and anything by me ,
     I’m truly sorry for every tear, every doubt, and every moment you felt alone.
   </p>
 </section>
@@ -210,10 +228,10 @@ button.main:hover { background: #ff5f95; }
   <h1>Our Memories 🌙</h1>
   <p>
     From small laughs to deep late-night video calls,
-    to sleeping in calls
+    Sleeping in video calls
     from silly moments to serious promises to marry each other in next 8 years —
-    everything with you has meant alot to me<br><br>
-    You’re not just a chapter, Priks
+    everything with you has meant alot to me.<br><br>
+    You’re not just a chapter, Priks.
     You’re someone I still choose, every single day and will choose humesha
   </p>
 </section>
@@ -221,9 +239,9 @@ button.main:hover { background: #ff5f95; }
 <section id="again">
   <h1>Let’s Begin Again 💗</h1>
   <p>
-    I’m not asking you to forget anything<br>
+    I’m not asking you to forget anything.<br>
     I’m asking for a chance to do it right this time —
-    with more honesty, more care, mosre trust and more love than everbefore.<br><br>
+    with more honesty, more care, and more love than before.<br><br>
     Every attention that you wanted from me
     All my time everything
   </p>
@@ -242,19 +260,33 @@ button.main:hover { background: #ff5f95; }
 </div>
 
 <audio id="music" loop>
-  <source src="https://cdn.pixabay.com/audio/2022/10/09/audio_8f0c8db64e.mp3" type="audio/mpeg">
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_8b6d7b1a91.mp3" type="audio/mpeg">
 </audio>
 
 <script>
+const inputs = document.querySelectorAll(".otp input");
+const music = document.getElementById("music");
+
+inputs.forEach((input, index) => {
+  input.addEventListener("input", () => {
+    if (input.value && index < inputs.length - 1) {
+      inputs[index + 1].focus();
+    }
+  });
+});
+
 function unlock() {
-  if (document.getElementById("pass").value === "17052025") {
+  let entered = "";
+  inputs.forEach(i => entered += i.value);
+
+  if (entered === "17052025") {
     document.getElementById("lock").style.display = "none";
+    music.play();
   } else {
-    alert("Wrong date");
+    alert("Wrong date 💔");
   }
 }
 
-const music = document.getElementById("music");
 function playMusic() { music.play(); }
 function setVolume(v) { music.volume = v; }
 
