@@ -1,148 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For You</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For Priyanka ❤️</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  color: #fff;
+  background: #0b0b0b;
+  color: #d6d6d6;
   overflow-x: hidden;
 }
 
-.container {
-  max-width: 720px;
-  margin: auto;
-  padding: 50px 20px;
-  animation: fadeIn 1.2s ease;
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.7);
+  padding: 15px;
+  text-align: center;
+  z-index: 1000;
+}
+
+nav a {
+  color: #ff7aa2;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+section {
+  min-height: 100vh;
+  padding: 120px 20px 60px;
+  text-align: center;
 }
 
 h1 {
-  font-size: 2.3rem;
-  margin-bottom: 25px;
-}
-
-.card {
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 25px;
-  margin-bottom: 30px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  color: #ff7aa2;
+  font-size: 2.6rem;
+  margin-bottom: 20px;
 }
 
 p {
-  line-height: 1.7;
-  opacity: 0.95;
+  max-width: 700px;
+  margin: auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #bfbfbf;
 }
 
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 22px;
-  border-radius: 25px;
-  background: #ff5f8a;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.nav {
-  text-align: center;
+button {
   margin-top: 30px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  background: #ff7aa2;
+  color: black;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
 }
 
-.nav a {
-  margin: 0 10px;
-  color: #ffb3c6;
-  text-decoration: none;
-  font-size: 0.95rem;
+button:hover {
+  background: #ff4f87;
 }
 
-footer {
-  text-align: center;
-  opacity: 0.6;
-  margin-top: 40px;
-  font-size: 0.9rem;
-}
-
-/* Heart animation */
 .heart {
   position: fixed;
   bottom: -10px;
-  font-size: 18px;
+  font-size: 20px;
   animation: floatUp 6s linear infinite;
-  opacity: 0.6;
+  color: #ff7aa2;
 }
 
 @keyframes floatUp {
-  from { transform: translateY(0); opacity: 0.6; }
-  to { transform: translateY(-120vh); opacity: 0; }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-  <h1>This isn’t an argument.<br>This is my heart.</h1>
+<nav>
+  <a href="#sorry">I’m Sorry</a>
+  <a href="#memories">Memories</a>
+  <a href="#again">Let’s Begin Again</a>
+</nav>
 
-  <div class="card">
-    <h2>I’m sorry.</h2>
-    <p>
-      Main maanta hoon meri galti thi.  
-      Maine react kiya jab mujhe samajhna chahiye tha.  
-      Aur jo sabse zyada matter karta hai — tum — hurt hui.
-    </p>
-    <p>
-      Ismein koi excuse nahi.  
-      Sirf responsibility hai.
-    </p>
-  </div>
+<section id="sorry">
+  <h1>Priyanka ❤️</h1>
+  <p>
+    I know I have made mistakes and hurted you.<br><br>
+    Especially last October — I know that phase hurted you deeply, and I’m genuinely sorry for that.
+    I should have been more understanding, more patient, and more careful with your heart.<br><br>
+    And what happened recently… maybe might have reopened the old wounds about kritika wala incident
+    None of it was intentional and again this was not a revenge and anything by me ,
+    I’m truly sorry for every tear, every doubt, and every moment you felt alone.
+  </p>
+</section>
 
-  <div class="card">
-    <h2>You matter.</h2>
-    <p>
-      Tum sirf meri girlfriend nahi ho.  
-      Tum meri peace ho, meri clarity ho,  
-      aur meri life ka woh hissa ho jiske bina sab adhoora lagta hai.
-    </p>
-  </div>
+<section id="memories">
+  <h1>Our Memories 🌙</h1>
+  <p>
+    From small laughs to deep late-night video calls,
+    Sleeping in video calls 
+    from silly moments to serious promises to marry each other in next 8 years —
+    everything with you has meant alot to me.<br><br>
+    You’re not just a chapter, Priks.
+    You’re someone I still choose, every single day and will choose humesha
+  </p>
+</section>
 
-  <div class="nav">
-    <a href="memories.html">Memories</a>
-    <a href="restart.html">Let’s Begin Again</a>
-  </div>
+<section id="again">
+  <h1>Let’s Begin Again 💗</h1>
+  <p>
+    I’m not asking you to forget anything.<br>
+    I’m asking for a chance to do it right this time —
+    with more honesty, more care, and more love than before.<br><br>
+    Every attention that you wanted from me 
+    All my time everything
+  </p>
 
-  <footer>
-    Made with honesty.
-  </footer>
-</div>
+  <a href="https://wa.me/917416451902">
+    <button>Talk to Me 💬</button>
+  </a>
+</section>
 
 <script>
-function createHeart() {
+setInterval(() => {
   const heart = document.createElement("div");
   heart.className = "heart";
   heart.innerHTML = "❤️";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (12 + Math.random() * 18) + "px";
+  heart.style.fontSize = (14 + Math.random() * 20) + "px";
   document.body.appendChild(heart);
 
-  setTimeout(() => heart.remove(), 6000);
-}
-
-setInterval(createHeart, 700);
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}, 400);
 </script>
 
 </body>
