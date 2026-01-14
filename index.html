@@ -23,7 +23,7 @@ body {
   overflow-x: hidden;
 }
 
-/* PASSWORD SCREEN */
+/* PASSWORD */
 #lock {
   position: fixed;
   inset: 0;
@@ -45,7 +45,6 @@ body {
 .lock-box h2 {
   color: #ff7aa2;
   margin-bottom: 8px;
-  font-weight: 500;
 }
 
 .hint {
@@ -56,8 +55,8 @@ body {
 
 .otp {
   display: flex;
-  justify-content: center;
   gap: 8px;
+  justify-content: center;
   margin-bottom: 18px;
 }
 
@@ -66,7 +65,6 @@ body {
   height: 44px;
   border-radius: 10px;
   border: none;
-  outline: none;
   background: #1f1f26;
   color: #fff;
   font-size: 1.1rem;
@@ -79,7 +77,6 @@ body {
   border: none;
   background: #ff7aa2;
   color: #111;
-  cursor: pointer;
 }
 
 /* NAV */
@@ -98,7 +95,6 @@ nav a {
   color: #bdbdc7;
   margin: 0 14px;
   text-decoration: none;
-  font-weight: 500;
 }
 
 nav a:hover { color: #ff7aa2; }
@@ -112,86 +108,56 @@ section {
 
 h1 {
   color: #ff8fb3;
-  font-size: 2.4rem;
   margin-bottom: 22px;
-  font-weight: 500;
 }
 
 p {
   max-width: 720px;
   margin: auto;
-  font-size: 1.05rem;
   line-height: 1.9;
-  color: #c6c6cf;
 }
 
 /* BUTTON */
 button.main {
   margin-top: 34px;
   padding: 12px 30px;
-  font-size: 0.95rem;
   background: #ff7aa2;
-  color: #111;
-  border: none;
   border-radius: 28px;
-  cursor: pointer;
+  border: none;
 }
-
-button.main:hover { background: #ff5f95; }
 
 /* MUSIC */
 .music-box {
   position: fixed;
-  bottom: 22px;
-  right: 22px;
+  bottom: 20px;
+  right: 20px;
   background: #1c1c22;
-  border: 1px solid #2a2a32;
-  padding: 14px;
+  padding: 12px;
   border-radius: 18px;
-  z-index: 999;
-}
-
-.music-box button {
-  background: none;
-  border: none;
-  color: #ff7aa2;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-.music-box input {
-  width: 100px;
-  margin-top: 8px;
 }
 
 /* HEARTS */
 .heart {
   position: fixed;
   bottom: -10px;
-  font-size: 16px;
   animation: floatUp 8s linear infinite;
   color: #ff8fb3;
-  opacity: 0.4;
 }
 
 @keyframes floatUp {
-  from { transform: translateY(0); opacity: 0.5; }
   to { transform: translateY(-110vh); opacity: 0; }
 }
 
-/* SIGNATURE */
 .signature {
   margin-top: 40px;
   font-family: 'Pacifico', cursive;
   color: #ff7aa2;
-  font-size: 1.4rem;
 }
 </style>
 </head>
 
 <body>
 
-<!-- PASSWORD -->
 <div id="lock">
   <div class="lock-box">
     <h2>For Priyanka</h2>
@@ -253,52 +219,40 @@ button.main:hover { background: #ff5f95; }
   <div class="signature">— Rishab</div>
 </section>
 
-<!-- MUSIC -->
+<!-- REAL MUSIC PLAYER -->
 <div class="music-box">
-  <button onclick="playMusic()">♫ Play</button><br>
-  <input type="range" min="0" max="1" step="0.01" value="0.3" onchange="setVolume(this.value)">
+  <audio controls preload="none">
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_8b6d7b1a91.mp3" type="audio/mpeg">
+  </audio>
 </div>
-
-<audio id="music" loop>
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_8b6d7b1a91.mp3" type="audio/mpeg">
-</audio>
 
 <script>
 const inputs = document.querySelectorAll(".otp input");
-const music = document.getElementById("music");
 
-inputs.forEach((input, index) => {
-  input.addEventListener("input", () => {
-    if (input.value && index < inputs.length - 1) {
-      inputs[index + 1].focus();
-    }
+inputs.forEach((i, idx) => {
+  i.addEventListener("input", () => {
+    if (i.value && idx < inputs.length - 1) inputs[idx + 1].focus();
   });
 });
 
 function unlock() {
-  let entered = "";
-  inputs.forEach(i => entered += i.value);
-
-  if (entered === "17052025") {
+  let val = "";
+  inputs.forEach(i => val += i.value);
+  if (val === "17052025") {
     document.getElementById("lock").style.display = "none";
-    music.play();
   } else {
     alert("Wrong date 💔");
   }
 }
 
-function playMusic() { music.play(); }
-function setVolume(v) { music.volume = v; }
-
 setInterval(() => {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "🩷";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (12 + Math.random() * 14) + "px";
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 8000);
-}, 900);
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "🩷";
+  h.style.left = Math.random()*100+"vw";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),8000);
+},900);
 </script>
 
 </body>
